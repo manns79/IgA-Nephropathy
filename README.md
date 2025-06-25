@@ -46,6 +46,10 @@ Sedimentation rate was the next lab that was analyzed. As mentioned above, sedim
 
 ![sed_rate_eda](Assets/sed_rate_eda.png)
 
+The final lab that was analyzed in the first part of our EDA was hemoglobin. Hemoglobin is a protein in red blood cells, and low hemoglobin levels may be an indication that a disease or condition is affecting the body's ability to produce red blood cells ([Cleveland Clinic](https://my.clevelandclinic.org/health/symptoms/17705-low-hemoglobin)). The consequence of low hemoglobin is that body doesn't get enough oxygen, which causes one to feel very tired and weak. What is considered the normal range for hemoglobin can vary slightly depending on sex, but 12 g/dL is considered low. In our dataset, 382 kidney patients had a hemoglobin reading and 148 non-kidney patients had a hemoglobin readings. Similar to the previous two labs, for this subset of patients, we extracted their first hemoglobin lab reading. The data obtained through this procedure is shown in the histogram below. Notice that the two histograms are roughly centered around the same value, but there are some noticeable differences between the two groups. To that end, kidney patients have relatively lower levels of hemoglobin, on average. We suspected that this observation was a consequence of a larger proportion of kidney patients having heart disease (relative to non-kidney patients).
+
+![hemoglobin_eda](Assets/hemoglobin_eda.png)
+
 ## Modeling
 
 Describe modeling approach here
