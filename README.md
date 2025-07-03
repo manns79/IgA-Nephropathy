@@ -50,9 +50,28 @@ The final lab that was analyzed in the first part of our EDA was hemoglobin. Hem
 
 ![hemoglobin_eda](Assets/hemoglobin_eda.png)
 
+As a second step in our EDA, we sought to:
+- analyze feature distributions
+- explore feature-target relationships
+- examine relationships among the features
+
+Importantly, this analysis was conducted using only the training data. In order to analyze the feature distributions, 
+
+![feature_distribution_eda](Assets/feature_distribution.png)
+
+Describe feature-target relationship
+
+![feature_target_relationship_eda](Assets/feature_target_relationship.png)
+
+Describe purpose of pair plot
+
+![pair_plot_eda](Assets/pair_plot.png)
+
+
+
 ## Modeling
 
-Based on our domain knowledge and the results from the EDA, nine different lab tests were considered as features during the modeling process. These were: albumin, bicarbonate, bun, bun/creatinine, calcium, chloride, creatinine, hemoglobin, and potassium. Although the EDA suggested that, excluding creatinine, bun would play a critical role in the classification, we considered a variety of combinations of these features. There were two purposes for considering different combinations of the nine features. First, from a medical perspective, the lab results that were selected as features are expected to provide a meaningful indication of kidney health. Therefore, it was of interest to see whether this expectation was lived out in practice. Second, the computational cost and time needed to fit additional models was low, so considering multiple combinations of the features offered a greater level of completeness with little additional expense. That being said, the combinations of the nine features that we considered are:
+Based on our domain knowledge and the available data, nine different lab tests were considered as features during the modeling process. These were: albumin, bicarbonate, bun, bun/creatinine, calcium, chloride, creatinine, hemoglobin, and potassium. Although the EDA suggested that, excluding creatinine, bun would play a critical role in the classification, we considered a variety of combinations of these features. There were two purposes for considering different combinations of the nine features. First, from a medical perspective, the lab results that were selected as features are expected to provide a meaningful indication of kidney health. Therefore, it was of interest to see whether this expectation was lived out in practice. Second, the computational cost and time needed to fit additional models was low, so considering multiple combinations of the features offered a greater level of completeness with little additional expense. That being said, the combinations of the nine features that we considered are:
 1. albumin
 2. bicarbonate
 3. creatinine
