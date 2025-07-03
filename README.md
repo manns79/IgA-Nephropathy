@@ -52,7 +52,27 @@ The final lab that was analyzed in the first part of our EDA was hemoglobin. Hem
 
 ## Modeling
 
-Describe modeling approach here
+Based on our domain knowledge and the results from the EDA, nine different lab tests were considered as features during the modeling process. These were: albumin, bicarbonate, bun, bun/creatinine, calcium, chloride, creatinine, hemoglobin, and potassium. Although the EDA suggested that, excluding creatinine, bun would play a critical role in the classification, we considered a variety of combinations of these features. There were two purposes for considering different combinations of the nine features. First, from a medical perspective, the lab results that were selected as features are expected to provide a meaningful indication of kidney health. Therefore, it was of interest to see whether this expectation was lived out in practice. Second, the computational cost and time needed to fit additional models was low, so considering multiple combinations of the features offered a greater level of completeness with little additional expense. That being said, the combinations of the nine features that we considered are:
+1. albumin
+2. bicarbonate
+3. creatinine
+4. bun
+5. bun/creatinine
+6. albumin and bicarbonate
+7. albumin and bun
+8. albumin and bun/creatinine
+9. albumin and creatinine
+10. bicarbonate and bun
+11. bicarbonate and bun/creatinine
+12. albumin, creatinine, and bun
+13. albumin, bicarbonate, and bun
+14. albumin, bicarbonate, and bun/creatinine
+15. albumin, bun, bicarbonate, and creatinine
+
+For each of the 15 combinations of features mentioned above, we used two different classification algorithms. These were logistic regression and k-nearest neighbors. While there are a variety of different classification algorithms that one may consider applying to the data, many of these are not appropriate in this case. This is because the requirement that the patients in our dataset have all of the necessary lab measurements taken on the same day significantly reduced the size of our dataset (i.e., reduced it down to 764 total patients). Therefore, machine learning algorithms which are designed to be used with large datasets can easily memorize our training set, but are not expected to generalize well to new unseen data. We demonstrated this point by using a gradient boosting classifier with albumin, bun, bicarbonate, calcium, chloride, hemoglobin, and potassium as features. Specifically, this gradient boosting classifier obtained 99.67% accuracy on the training set, with a 0.66% false negative rate. Such seemingly impressive metrics would make our results comparable to those in papers such as [Chronic kidney disease prediction based on machine learning algorithms](https://doi.org/10.1016/j.jpi.2023.100189); however, as part of an effort to produce models with a greater potential to generalize well, we stuck with logistic regression and k-nearest neighbors. 
+
+Hyperparameter tuning was performed for each of the two classification algorithms that were applied to the data. For logistic regression, this entailed tuning the value of the inverse of regularization strength (`C`). The values of `C` that were tested were [0.001, 0.01, 0.1, 1, 10, 100], For k-nearest neighbors, this entailed tuning the value of the number of nearest neighbors (`n_neighbors`). The values of `n_neighbors` that were tested were 1, 2, ..., 20. All hyperparameter tuning was accomplished by using 5-fold cross-validation. In particular, the hyperparameter value with the highest average accuracy score was selected. It was the accuracy score, false negative rate, and interpretation of such classifiers that were considered when determining our best model and interpretting the results. As a final sanity check, the best model was evaluated on the test set to ensure that a comparable level of accuracy was obtained. 
+
 
 ## Results
 
