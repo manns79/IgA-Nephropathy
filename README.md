@@ -55,7 +55,7 @@ As a second step in our EDA, we sought to:
 - explore feature-target relationships
 - examine relationships among the features
 
-Importantly, this analysis was conducted using only the training data. In order to analyze the feature distributions, 
+Importantly, this analysis was conducted using only the training data. In order to analyze the feature distributions, we constructed a histogram for each feature using all of the patients in the training data. The result is shown in the figure below. The most noteworthy takeaway from this histogram is that the distribution of creatinine and bun are right-skewed. This is expected from a dataset that contains 
 
 ![feature_distribution_eda](Assets/feature_distribution.png)
 
