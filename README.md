@@ -1,6 +1,6 @@
 # IgA-Nephropathy
 
-Team members: [Amelia Spivak]() and [Steve Manns](https://github.com/manns79)
+Team members: [Amelia Spivak](https://github.com/AmeliaSpivak/profile) and [Steve Manns](https://github.com/manns79)
 
 # Table of Contents
 1. [Introduction](#introduction)
