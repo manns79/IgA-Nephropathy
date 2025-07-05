@@ -49,7 +49,8 @@ The notebooks used to generate our datasets from the MIMIC-IV files may be found
 
 ## Exploratory Data Analysis
 
-As a first step in our exploratory data analysis (EDA), we sought to gather evidence that the health of the kidney disease and non-kidney patients was comparable (excluding the fact that patients in one group received a kidney disease diagnosis). Furthermore, we wanted to understand any minor differences that were identified between the two groups. Our approach to handling this task entailed analyzing the following three lab tests:
+Patients in the ICU (Intensive Care Unit) are critically ill patients. We therefore expected that general measures of illness would find the two groups that make up our dataset, ICU patients with kidney disease and ICU patients without a kidney disease diagnosis, to be comparable in extent of illness. This assumption is important for our study as we seek to compare patient populations that are different only with regard to whether or not they have a kidney disease diagnosis or not. For example, comparing ICU patients with kidney disease to non-hospitalized people with no kidney disease would be very misleading, as lab results that reflect hospitalization would incorrectly show up as differences related entirely to kidney disease. As a first step in our exploratory data analysis (EDA), we conducted this check to confirm comparable health status using the following three lab tests:
+
 1. C-Reactive Protein (CRP) (`itemid` = 50889)
 2. Sedimentation Rate (`itemid` = 51288)
 3. Hemoglobin (`itemid` = 50811)
