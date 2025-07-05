@@ -73,7 +73,7 @@ As a second step in our EDA, we sought to:
 - explore feature-target relationships
 - examine relationships among the features
 
-Importantly, this analysis was conducted using only the training data. To analyze the feature distributions, we constructed a histogram for each feature using all of the patients (in the training data). The result is shown in the figure below. The distributions of creatinine and BUN are right-skewed only because normal values for the former are 0.20-1.10 mg/dL and for the latter 7-22 mg/dL. This is expected from a dataset where half of patients have kidney disease, as both high creatinine and bun are indicators for kidney disease. The figure shown below also indicates that, to a lesser extent, the distribution of potassium and calcium are also right-skewed. 
+Importantly, this analysis was conducted using only the training data. To analyze the feature distributions, we constructed a histogram for each feature using all of the patients (in the training data). The result is shown in the figure below. The distributions of creatinine and BUN are right-skewed only because normal values for the former are 0.20-1.10 mg/dL and for the latter 7-22 mg/dL. (Similarly for potassium whose normal range is 3.5-5.3 mmol/L, and for calcium whose normal range is 8.5-11.0 mg/dL.)
 
 ![feature_distribution_eda](Assets/feature_distribution.png)
 
