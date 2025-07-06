@@ -118,4 +118,34 @@ Hyperparameter tuning was performed for each of the two classification algorithm
 
 ## Results
 
-Describe results here
+Our motivating interest is to predict kidney disease in its early stages. Our ultimate goal would be to create a predictive tool that could be applied to a patient’s routine labs that could predict the likelihood of kidney disease. This would embolden a physician to draw additional labs outside her regular beat or to make a referral to a nephrologist, leading to a potential early diagnosis and a better outcome for the patient.
+
+We turned to the MIMIC IV dataset because it was the only dataset we could obtain that contained the full range of routine labs and many kidney patients. But using it forced us to adapt our study question. We would now be looking at patients with established kidney disease at an ICU. The question we could address with this data is whether we could find other routine labs – excluding serum creatinine – that were closely associated with the serum creatinine level. Could kidney disease patients be distinguished from non-kidney disease patients in the ICU on the basis of a set of routine labs that does not include serum creatinine, the lab test whose confirmed elevated level defines kidney disease?
+
+Our thinking was that if we could answer this question in the affirmative, in the more compromised ICU setting, where labs can be deeply affected by the acuteness of the situation and by the administration of IV fluids, then it would look very promising that it could, with the appropriate data, be answered in the affirmative in the outpatient setting. If the readings of a set of labs can characterize early kidney disease, the disease could be diagnosed before serum creatinine rises.
+
+We believe our results point to a promising answer for the ICU patients.
+
+Applying logistic regression to the training set we found that BUN (Blood Urea Nitrogen) by itself was effective at distinguishing the kidney disease patients from the nonkidney disease patients with an accuracy of 0.844 and a false negative rate of 0.2.
+
+Given that in the training set, creatinine by itself, also by logistic regression, had an accuracy of 0.924 and a false negative rate of 0.11, BUN had only a 9% greater false negative rate than Creatinine and an accuracy that was only 8% inferior to that of Creatinine alone.
+
+In the outpatient setting confirmed elevated serum creatinine has a much higher accuracy and much lower false negative than it had in the ICU training set. This can be attributed to noise coming from the ICU situation. To minimize the contribution from noise, the results obtained from using BUN to categorize the patients in the ICU should be compared to using serum creatinine to categorize ICU patients.
+
+These results are surprising. If confirmed with more tests on larger datasets, they would constitute an original contribution to medicine: BUN by itself, measured on the last day of each patient’s visit to the ICU to eliminate from consideration cases of AKI (acute kidney injury) that self-resolved, can distinguish with an accuracy of greater than 84% between patients with kidney disease and those with no documented kidney disease.
+
+In the outpatient setting, elevated BUN is considered nonspecific to kidney disease. In the late 1990’s BUN was included in the formula called MDRD to estimate kidney function, but by 2009 the CKD-EPI which excludes BUN became the standard formula of use. The thinking is BUN is affected by whether a person eats a large meat meal or is starving themselves, and so is not reliable as an index to be included.
+
+Our best results on the training data were obtained using albumin, BUN and bicarbonate. On the test data, using logistic regression, this set of three labs had an accuracy of 84.31% with a 23.38% false negative rating. On the test data, serum creatinine alone had an accuracy of 90.85% and a false negative rate of 14.29%.
+
+Thus on the test data, the collection of three routine lab tests that did not include serum creatinine, namely, albumin, BUN and bicarbonate, had an accuracy less than 6.5 % of that of serum creatinine and a false positive rating about 9% greater than serum creatinine. Indeed this set of three came close to doing as well as serum creatinine in distinguishing the kidney disease patients from the non-kidney disease patients.
+
+Our results on the ICU population could possibly be improved with better data that included more routine lab tests. The MIMIC data had some surprising limitations. As described in the EDA section of this report, the basic tests of inflammation, CRP and erythrocyte sedimentation rate, were only performed on a fraction of our dataset of kidney disease patients and non-kidney disease patients. White blood cell count, WBC, was only performed on a handful of our patients. Similarly, sodium was not tested widely. Hemoglobin was tested on only ⅔ of the patients. Our guess is that certain basic testing occured before a patient was brought to the ICU and these test results are not held in the MIMIC data. As for urine testing, only 8 patients in our dataset of 2008 patients were tested, consistent with the policy for outpatient urine testing referenced in the Introduction.
+
+
+Issues with Obtaining Data:
+
+With the goal of early prediction of kidney disease, we sought out data on kidney disease patients. We made requests for open data from the different national government agencies and public foundations that declare their data open to the public, upon request. But we found upon inquiry that the application process and review excluded professionals like ourselves who would use computational and mathematical techniques. The requirements were onerous and irrelevant – for example, these agencies wanted to know if we had proper procedures for handling animal specimens. This does point to a grave flaw in the system, as AI and machine learning offer new horizons, and to benefit from these, it will be necessary for these organizations to share data obtained from taxpayer dollars with scientists and mathematicians like ourselves who work with different tools.
+
+The problem of obtaining publicly available data was faced by the engineers whose work on this topic preceded our own.  A number of projects on Kaggle, and the paper in the Journal of Pathology Informatics cited in our introduction, are all based on one very deficient dataset of 400 patients from a hospital in India, accessible from the UCI machine learning repository. This set includes only several different types of blood tests, with categorical values. The authors of the paper acknowledge that this was the only dataset they could obtain. 
+
